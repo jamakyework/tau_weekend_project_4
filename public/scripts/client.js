@@ -2,18 +2,20 @@
 $(document).ready(function() {
   console.log("$");
 
-var taskInput = [];
+var taskInputArray = [];
 
   $("#createTaskBtn").on('click', function(){
        console.log("createTask button clicked");
        //start userInput object
-       var taskInput= {
-         task: ("#taskInput").val(),
+       var taskInput={
+         task: $("#taskInput").val(),
        };// end get userInput object
-       taskInput.push(taskInput2);
-       //push user input into global
        console.log("in taskInputIn:", taskInput);
-   });
+       //clear Input
+       $("#taskInput").val("");
+       //push user input into global
+       taskInputArray .push(taskInput);
+   });//end button click
 
 });// end $
 
