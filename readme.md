@@ -30,58 +30,58 @@ PRO MODE
 
 Adjust the logic so that completed tasks are brought to the bottom of the page, where the remaining tasks left to complete are brought to the top of the list.
 
-Technologies
-============
-[]HTML
-[]CSS
-[]JavaScript
-[]jQuery
-[]Node
-[]Express
-[]pSQL
+
 
 Project Setup
 =============
 
-[] Source and connect required files and technologies
-[] Create project folder
-[] Create  public/index.html
-[] Create style/style.css
-[] Create scripts/client.js
-[] Create server/app.js
-[] Create path
-[] npm init, npm install express, body-parser, pg, jquery,
-[] Require express, body-parser, pg, jquery,
-[] Create gitignore, git init, git add ., git commit, git push,
+Required Technologies
+=====================
+[x]HTML
+[x]CSS
+[x]JavaScript
+[]jQuery
+[x]Node
+[x]Express
+[x]body-parser
+[x]pSQL
 
-===============================================================================================================
+Source and connect required files and technologies
+==================================================
+[x] Create project folder
+[x] Connect public/style/style/style.css
+[x] Connect scripts/client.js
+[x] Connect scripts/vendors/jquery
+[x] Create gitignore, git init, git add ., git commit, git push,
+[x] npm init, npm install express,  body-parser, pg, jquery,
 
-Tasks
-=====
+=================================================================================================
 
-style.css
-=========
-[] Whenever a task is created the front end should refresh to show all tasks that need to be completed.
-   (on Create Task button click .hide, .show maybe?)
-[] When a task is complete, its visual representation should change on the front end (for example, the
-   background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
-[] Make sure that you also show us your best styling chops. We encourage you to try and write pure CSS rather than use Bootstrap.
+
+Project Tasks
+=============
 
 index.html
 =========
 [] Create a front end experience that allows a user to create a task
-    [] Text input and Create Task button
-    [] Need outputDIV
+    [x] Create  public/views/index.html
+    [x] Text input and Create Task button
+    [x] display/outputDIV
     [] In output, need to reflect status of task and option to complete task or delete task
 
 client.js
 =========
-    [] On button click AJAX post call to send data from HTML input from client.js to app.js
-    [] On button click AJAX get call to retrieve data from app.js to client
+    [x] Create scripts/client.js
+    [] Connect userinput from index.html to client.js
+    [] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
+    [] On button click trigger AJAX get call to retrieve data from app.js to client
     [] Output display data from client.js to DOM,
 
 app.js
 ======
+    [] Create server/app.js with requirements express, body-parser, pg, jquery,
+    connectionString
+    [] Connect client.js to app.js
     [] Create connection string to connect DB to app.js,
     [] Retrieve data from DB to app.js
     [] Retrieve data from app.js to client.js
@@ -95,4 +95,12 @@ postico
     [] Deleting a task should remove it both from the Front End as well as the Database.
        (connect delete button from index to client to app to db to perform Delete option of CRUD)
 
-===========================================================================================================    
+style.css
+=========
+[] Whenever a task is created the front end should refresh to show all tasks that need to be     
+   completed.(on Create Task button click .hide, .show maybe?)
+[] When a task is complete, its visual representation should change on the front end (for
+   example, the background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
+[] Make sure that you also show us your best styling chops. We encourage you to try and write    
+   pure CSS rather than use Bootstrap.
+=================================================================================================

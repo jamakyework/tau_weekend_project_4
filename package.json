@@ -1,0 +1,29 @@
+{
+  "name": "weekend-challenge-4",
+  "version": "1.0.0",
+  "description": "weekend-challenge-4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamakyework/tau_weekend_project_4.git",
+    "start": "node  server/app.js"
+  },
+  "keywords": [
+    "weekend-challenge-4"
+  ],
+  "author": "John A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamakyework/tau_weekend_project_4/issues"
+  },
+  "homepage": "https://github.com/jamakyework/tau_weekend_project_4#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "pg": "^6.1.2"
+  }
+}
