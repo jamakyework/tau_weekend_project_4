@@ -41,4 +41,32 @@ app.post( '/createTask', urlEncodedParser, function( req, res ){
     }
   }); // end db connection
 
+  app.get( '/getTasks', function( req, res ){
+    console.log( 'getTasks url hit' );
+    // connect to db
+    pg.connect( connectionString, function( err, client, done ){
+      if( err ){
+        console.log( err );
+      } // end error
+      else{
+        console.log( 'connected to db' );
+        var query = client.query( 'SELECT * from todolist') ;
+        // array for towers
+        var allTasks = [];
+        query.on( 'row', function( row ){
+          // push this tower into the new array
+          allTasks.push( row );
+        });
+        query.on( 'end', function(){
+          // finish the operation
+          done();
+          // send back data
+          console.log( allTasks );
+          // will this work?
+          res.send( allTasks );
+        });
+      } // end no error
+    }); // end connect
+  }); // end testGet
+
 }); // end createTask Post
