@@ -2,22 +2,36 @@
 $(document).ready(function() {
   console.log("$");
 
-var taskInputArray = [];
-
   $("#createTaskBtn").on('click', function(){
-       console.log("createTask button clicked");
-       //start userInput object
-       var taskInput={
-         task: $("#taskInput").val(),
-       };// end get userInput object
-       console.log("in taskInputIn:", taskInput);
-       //clear Input
-       $("#taskInput").val("");
-       //push user input into global
-       taskInputArray .push(taskInput);
-   });//end button click
+    console.log("createTask button clicked");
 
+    //postTask function
+    var postTask = function(){
+      console.log( 'in postTask' );
+      //assemble userInput
+      var taskInputObj={
+        task: $("#taskInput").val(),
+      };//end taskInputObj
+      //start ajax
+      $.ajax({
+        type: 'POST',
+        url: '/createTask',
+        data: taskInputObj,
+        success: function( response ){
+          console.log( 'back from post call:', response );
+        }, // end success
+        error: function(){
+          console.log( 'error with ajax call...');
+        } // end error
+      }); // end ajax
+    }; // end postTask
+    postTask();
+    //clear Input
+    $("#taskInput").val("");
+  });//end button click
+  
 });// end $
+
 
 
 // var displayOnDom = function(){

@@ -4,12 +4,13 @@
   "description": "weekend-challenge-4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node  server/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamakyework/tau_weekend_project_4.git",
-    "start": "node  server/app.js"
+    "url": "git+https://github.com/jamakyework/tau_weekend_project_4.git"
+
   },
   "keywords": [
     "weekend-challenge-4"
