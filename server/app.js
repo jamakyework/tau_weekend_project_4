@@ -35,7 +35,7 @@ app.post( '/createTask', urlEncodedParser, function( req, res ){
     else{
       console.log( 'connected to db' );
       // use wildcards to insert record
-      client.query( 'INSERT INTO todolist( task) values ( $1)', [ req.body.task] );
+      client.query( 'INSERT INTO todolist ( task, status) values ( $1 , $2)', [ req.body.task, req.body.status ] );
       done();
       res.send( 'woof' );
     }

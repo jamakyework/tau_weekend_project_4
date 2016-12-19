@@ -40,7 +40,7 @@ Required Technologies
 [x]HTML
 [x]CSS
 [x]JavaScript
-[]jQuery
+[x]jQuery
 [x]Node
 [x]Express
 [x]body-parser
@@ -63,11 +63,12 @@ Project Tasks
 
 index.html
 =========
-[] Create a front end experience that allows a user to create a task
+[x] Create a front end experience that allows a user to create a task
     [x] Create  public/views/index.html
     [x] Text input and Create Task button
     [x] display/outputDIV
-    [] In output, need to reflect status of task and option to complete task or delete task
+[] In output, need to reflect status of task and option to complete task or delete task
+(probably will need a drop down in output to allow users to select if task is complete, pending or delete task)
 
 client.js
 =========
