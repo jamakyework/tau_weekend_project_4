@@ -77,6 +77,9 @@ client.js
     [x] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
     [x] On button click trigger AJAX get call to retrieve data from app.js to client
     [x] Output display data from client.js to DOM,
+    [] Need to display tasks in ul,
+    [] Connect status drop down in outputDiv to  logic (eg if status = x, perform x, delete, change status etc)
+
 
 app.js
 ======
