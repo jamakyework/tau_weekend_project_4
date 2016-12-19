@@ -11,6 +11,7 @@ $(document).ready(function() {
       //assemble userInput
       var taskInputObj={
         task: $("#taskInput").val(),
+        status: "pending",
       };//end taskInputObj
       //start ajax
       $.ajax({
@@ -52,7 +53,7 @@ $(document).ready(function() {
     // loop through the todolist and display each task
     var outputText = '';
     for (var i = 0; i < tasks.length; i++) {
-      outputText += '<p>' + tasks[i].task + '</p>';
+      outputText += '<p> Task:' + tasks[i].task + " " + "Status: " + tasks[i].status + '</p>';
     } // end for
     $( '#outputDiv' ).html( outputText );
 };//end displayOnDom

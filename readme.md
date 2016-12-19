@@ -40,7 +40,7 @@ Required Technologies
 [x]HTML
 [x]CSS
 [x]JavaScript
-[]jQuery
+[x]jQuery
 [x]Node
 [x]Express
 [x]body-parser
@@ -63,11 +63,12 @@ Project Tasks
 
 index.html
 =========
-[] Create a front end experience that allows a user to create a task
+[x] Create a front end experience that allows a user to create a task
     [x] Create  public/views/index.html
     [x] Text input and Create Task button
     [x] display/outputDIV
-    [] In output, need to reflect status of task and option to complete task or delete task
+[] In output, need to reflect status of task and option to complete task or delete task
+(probably will need a drop down in output to allow users to select if task is complete, pending or delete task)
 
 client.js
 =========
@@ -76,6 +77,9 @@ client.js
     [x] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
     [x] On button click trigger AJAX get call to retrieve data from app.js to client
     [x] Output display data from client.js to DOM,
+    [] Need to display tasks in ul,
+    [] Connect status drop down in outputDiv to  logic (eg if status = x, perform x, delete, change status etc)
+
 
 app.js
 ======
@@ -92,8 +96,7 @@ postico
     [x] Create Table in postico (use pSql)
 [] Whether or not a task is complete should also be stored in the database.
     [x] In table include task complete column set to boolean
-    [] Deleting a task should remove it both from the Front End as well as the Database.
-       (connect delete button from index to client to app to db to perform Delete option of CRUD)
+    [] Deleting a task should remove it both from the Front End as well as the Database. (connect delete button from index to client to app to db to perform Delete option of CRUD)
 
 style.css
 =========
@@ -102,6 +105,5 @@ style.css
 [] When a task is complete, its visual
    representation should change on the front end (for example, the background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
 [] Make sure that you also show us your best
-   styling chops. We encourage you to try and write    
-   pure CSS rather than use Bootstrap.
+   styling chops. We encourage you to try and write pure CSS rather than use Bootstrap.
 =================================================================================================
