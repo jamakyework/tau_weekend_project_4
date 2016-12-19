@@ -72,16 +72,16 @@ index.html
 client.js
 =========
     [x] Create scripts/client.js
-    [] Connect userinput from index.html to client.js
-    [] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
+    [x] Connect userinput from index.html to client.js
+    [x] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
     [] On button click trigger AJAX get call to retrieve data from app.js to client
     [] Output display data from client.js to DOM,
 
 app.js
 ======
-    [] Create server/app.js with requirements express, body-parser, pg, jquery,
+    [x] Create server/app.js with requirements express, body-parser, pg, jquery,
     connectionString
-    [] Connect client.js to app.js
+    [x] Connect client.js to app.js
     [] Create connection string to connect DB to app.js,
     [] Retrieve data from DB to app.js
     [] Retrieve data from app.js to client.js

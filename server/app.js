@@ -27,18 +27,18 @@ app.post( '/createTask', urlEncodedParser, function( req, res ){
   console.log( 'createTask url hit. req.body:', req.body );
   // do work here
 
-  // // connect to db
-  // pg.connect( connectionString, function( err, client, done ){
-  //   if( err ){
-  //     console.log( err );
-  //   }
-  //   else{
-  //     console.log( 'connected to db' );
-  //     // use wildcards to insert record
-  //     client.query( 'INSERT INTO towers( name, location ) values ( $1, $2 )', [ req.body.name, req.body.location ] );
-  //     done();
-  //     res.send( 'woof' );
-  //   }
-  // }); // end db connection
+  // connect to db
+  pg.connect( connectionString, function( err, client, done ){
+    if( err ){
+      console.log( err );
+    }
+    else{
+      console.log( 'connected to db' );
+      // use wildcards to insert record
+      client.query( 'INSERT INTO todolist( task) values ( $1)', [ req.body.task] );
+      done();
+      res.send( 'woof' );
+    }
+  }); // end db connection
 
 }); // end createTask Post
