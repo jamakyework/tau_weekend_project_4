@@ -31,20 +31,19 @@ PRO MODE
 Adjust the logic so that completed tasks are brought to the bottom of the page, where the remaining tasks left to complete are brought to the top of the list.
 
 
-
 Project Setup
 =============
 
 Required Technologies
 =====================
-[x]HTML
-[x]CSS
-[x]JavaScript
-[x]jQuery
-[x]Node
-[x]Express
-[x]body-parser
-[x]pSQL
+[x] HTML
+[x] CSS
+[x] JavaScript
+[x] jQuery
+[x] Node
+[x] Express
+[x] body-parser
+[x] pSQL
 
 Source and connect required files and technologies
 ==================================================
