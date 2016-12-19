@@ -48,8 +48,8 @@ $(document).ready(function() {
   }; // end getTask
 
   var displayTask = function(tasks){
-    // console.log( 'in displayGarage:', garage );
-    // loop through the garage and display each car
+    console.log( 'in displayTask:', tasks );
+    // loop through the todolist and display each task
     var outputText = '';
     for (var i = 0; i < tasks.length; i++) {
       outputText += '<p>' + tasks[i].task + '</p>';

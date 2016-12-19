@@ -74,33 +74,34 @@ client.js
     [x] Create scripts/client.js
     [x] Connect userinput from index.html to client.js
     [x] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
-    [] On button click trigger AJAX get call to retrieve data from app.js to client
-    [] Output display data from client.js to DOM,
+    [x] On button click trigger AJAX get call to retrieve data from app.js to client
+    [x] Output display data from client.js to DOM,
 
 app.js
 ======
     [x] Create server/app.js with requirements express, body-parser, pg, jquery,
     connectionString
     [x] Connect client.js to app.js
-    [] Create connection string to connect DB to app.js,
-    [] Retrieve data from DB to app.js
-    [] Retrieve data from app.js to client.js
+    [x] Create connection string to connect DB to app.js,
+    [x] Retrieve data from DB to app.js
+    [x] Retrieve data from app.js to client.js
 
 postico
 =======
-[] When the task is created, it should be stored inside of a database (SQL)
-    [] Create Table in postico (use pSql)
+[x] When the task is created, it should be stored inside of a database (SQL)
+    [x] Create Table in postico (use pSql)
 [] Whether or not a task is complete should also be stored in the database.
-    [] In table include task complete column set to boolean
+    [x] In table include task complete column set to boolean
     [] Deleting a task should remove it both from the Front End as well as the Database.
        (connect delete button from index to client to app to db to perform Delete option of CRUD)
 
 style.css
 =========
-[] Whenever a task is created the front end should refresh to show all tasks that need to be     
-   completed.(on Create Task button click .hide, .show maybe?)
-[] When a task is complete, its visual representation should change on the front end (for
-   example, the background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
-[] Make sure that you also show us your best styling chops. We encourage you to try and write    
+[] Whenever a task is created the front end
+   should refresh to show all tasks that need to be completed.(on Create Task button click .hide, .show maybe?)
+[] When a task is complete, its visual
+   representation should change on the front end (for example, the background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
+[] Make sure that you also show us your best
+   styling chops. We encourage you to try and write    
    pure CSS rather than use Bootstrap.
 =================================================================================================

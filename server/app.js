@@ -40,7 +40,9 @@ app.post( '/createTask', urlEncodedParser, function( req, res ){
       res.send( 'woof' );
     }
   }); // end db connection
+  }); // end createTask Post
 
+  //start getTasks
   app.get( '/getTasks', function( req, res ){
     console.log( 'getTasks url hit' );
     // connect to db
@@ -66,7 +68,5 @@ app.post( '/createTask', urlEncodedParser, function( req, res ){
           res.send( allTasks );
         });
       } // end no error
-    }); // end connect
-  }); // end testGet
-
-}); // end createTask Post
+    }); // end db connect
+  }); // end getTasks
