@@ -4,7 +4,7 @@ CREATE TABLE todolist (
 	 status VARCHAR(30)
 );
 
-
-UPDATE todolist 
-SET status='complete'
-WHERE complete ='TRUE';
+UPDATE todolist
+SET complete=TRUE,
+status='complete'
+WHERE complete=FALSE AND id= + [req.body.id];

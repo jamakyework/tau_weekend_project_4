@@ -78,7 +78,7 @@ app.put('/putTask', urlEncodedParser, function(req, res) {
       console.log('error in connecting to database');
     } else {
       console.log('PUT connected to db');
-      var query= client.query("UPDATE todolist SET complete=TRUE, status='finished' WHERE complete=FALSE AND id=" + [req.body.id]);
+      var query= client.query("UPDATE todolist SET complete=TRUE, status='complete' WHERE complete=FALSE AND id=" + [req.body.id]);
       done();
       res.send(query);
     } //end else statment

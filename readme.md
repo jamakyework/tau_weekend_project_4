@@ -95,7 +95,7 @@ postico
 =======
 [x] When the task is created, it should be stored inside of a database (SQL)
     [x] Create Table in postico (use pSql)
-[] Whether or not a task is complete should also be stored in the database.
+[x] Whether or not a task is complete should also be stored in the database.
     [x] In table include task complete column set to boolean
     [] Deleting a task should remove it both from the Front End as well as the Database. (connect delete button from index to client to app to db to perform Delete option of CRUD)
 

@@ -17,7 +17,6 @@ $(document).ready(function(){
   //start displayTaskBtn
   $("#displayTasksBtn").on('click',function() {
     console.log("displayTasksBtn clicked");
-    //run get to get items from db or *display no tasks*(to come later)
     getTask();
   });//end displayTaskBtn
 
@@ -36,7 +35,7 @@ $(document).ready(function(){
         console.log(response);
       }
     });//end ajax
-    // getTask();
+    getTask();
   });//end completeTaskBtn
 
   //start deleteTaskBtn
@@ -56,7 +55,7 @@ $(document).ready(function(){
     //assemble userInput
     var taskInputObj={
       task: $("#taskInput").val(),
-      status: $("#statusDropdown").val(),
+      status: $(".status-drop-down").val(),
       complete: false,
     };//end taskInputObj
     //start ajax
@@ -81,9 +80,17 @@ $(document).ready(function(){
       url: '/getTask',
       success: function( response ){
         console.log( 'back from get call:', response );
+        console.log('response.length', response.length);
         console.log("in status: ", response[0].status);
+        //start if
+        if (response.length === 0) {
+          $( '#outputDiv' ).html( "<p>YNo tasks in to do list</p>" );
+        }
+        else {
         displayTask( response );
-      }, // end success
+      }//end if
+      },// end success
+
       error: function(){
         console.log( 'error with ajax call...');
       } // end error
