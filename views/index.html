@@ -11,13 +11,18 @@
   <h1>Tau To Do List</h1>
   <div>
     <input id="taskInput" type="text" name="taskInput" placeholder="Enter Task"></input>
+    <select id="statusDropdown">
+      <option value="Pending">Pending</option>
+      <option value="Work In Progress">Work In Progress</option>
+      <option value="Complete">Complete</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
     <button id="createTaskBtn" type="button" name="button">Create Task</button>
   </div>
   <div id="outputDiv">
   </div>
-  <div id="btnDiv">
-    <button id="completeTaskBtn" type="button" name="completetask">Complete Task</button>
-    <button id="deleteTaskBtn" type="button" name="deleteTask">Delete Task</button>
-  </div>
+  <div id="buttonDiv">
+  <button id="displayTasksBtn" type="button" name="button">Display All Tasks</button>
+</div>
 </body>
 </html>

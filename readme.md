@@ -7,10 +7,10 @@ This weekend is all about showing us that you have a handle on each of the diffe
 
 Here are the specific components for the challenge:
 
-Create a front end experience that allows a user to create a task.
-When the task is created, it should be stored inside of a database (SQL)
-Whenever a task is created the front end should refresh to show all tasks that need to be completed.
-Each task should have an option to 'Complete' or 'Delete'.
+[x]Create a front end experience that allows a user to create a task.
+[x]When the task is created, it should be stored inside of a database (SQL)
+[]Whenever a task is created the front end should refresh to show all tasks that need to be completed.
+[]Each task should have an option to 'Complete' or 'Delete'.
 When a task is complete, its visual representation should change on the front end (for example, the background of the task container could change from gray to green, as well as the complete option 'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete)
 Whether or not a task is complete should also be stored in the database.
 Deleting a task should remove it both from the Front End as well as the Database.
@@ -63,11 +63,13 @@ Project Tasks
 index.html
 =========
 [x] Create a front end experience that allows a user to create a task
-    [x] Create  public/views/index.html
-    [x] Text input and Create Task button
+    [x] Create public/views/index.html
+    [x] Text Input and Create Task button
     [x] display/outputDIV
 [] In output, need to reflect status of task and option to complete task or delete task
 (probably will need a drop down in output to allow users to select if task is complete, pending or delete task)
+(HOW? can do all need to figure out how to select each task... unique quality of tasks is ID)
+
 
 client.js
 =========
@@ -76,8 +78,8 @@ client.js
     [x] On button click trigger AJAX post call to send data from HTML input from client.js to app.js
     [x] On button click trigger AJAX get call to retrieve data from app.js to client
     [x] Output display data from client.js to DOM,
-    [] Need to display tasks in ul,
-    [] Connect status drop down in outputDiv to  logic (eg if status = x, perform x, delete, change status etc)
+    [x] Display tasks in ul,
+    [] Connect status (drop down?) in outputDiv to  logic (eg if status = x, perform x, delete, change status etc)
 
 
 app.js

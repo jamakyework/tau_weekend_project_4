@@ -1,40 +1,63 @@
 //start $
-$(document).ready(function() {
+$(document).ready(function(){
   console.log("$");
 
+  //-----------Buttons------------------ //
+  //start createTaskBtn click
   $("#createTaskBtn").on('click', function(){
     console.log("createTaskBtn clicked");
     //run post
     postTask();
-    // run get
+    //run get
     getTask();
     //clear Input
     $("#taskInput").val("");
-  });//end button click
+  });//end createTaskBtn click
 
-  $("#completeTaskBtn").on('click', function(){
-    console.log("completeTaskBtn clicked");
-    //run post
-    postCompleteTask();
-    // // run get
-    // getCompleteTask();
-  });//end button click
+  //start displayTaskBtn
+  $("#displayTasksBtn").on('click',function() {
+    console.log("displayTasksBtn clicked");
+    //run get to get items from db or *display no tasks*(to come later)
+    getTask();
+  });//end displayTaskBtn
 
-  $("#deleteTaskBtn").on('click', function(){
-    console.log("deleteTaskBtn clicked");
-    //run post
-    postdeleteTaskBtn();
-    // run get
-    getdeleteTaskBtn();
-  });//end button click
+  //start completeTaskBtn
+  $('#outputDiv').on('click', '.complete-task-btn',function(){
+    var id= $(this).attr('data');
+    console.log("completeTaskBtn clicked", id);
+    var objectToSend = {
+      id: id
+    };
+    $.ajax({
+      type:'PUT',
+      url:'/putTask',
+      data: objectToSend,
+      success:function(response){
+        console.log(response);
+      }
+    });//end ajax
+    // getTask();
+  });//end completeTaskBtn
 
-  //postTask function
+  //start deleteTaskBtn
+  $('#outputDiv').on('click', '.delete-task-btn',function(){
+    var id= $(this).attr('data');
+    console.log("deleteTaskBtn clicked", id);
+    //  var objectToSend = {
+    //        id: id
+    //      };
+  }); //end deleteTaskBtn
+
+
+  //--------------AJAX Calls-------------//
+  //postTask (send user input)
   var postTask = function(){
     console.log('in postTask');
     //assemble userInput
     var taskInputObj={
       task: $("#taskInput").val(),
-      status: "pending",
+      status: $("#statusDropdown").val(),
+      complete: false,
     };//end taskInputObj
     //start ajax
     $.ajax({
@@ -50,7 +73,7 @@ $(document).ready(function() {
     }); // end ajax
   }; // end postTask
 
-  // getTask function
+  //getTask (get back info from server/DB)
   var getTask = function(){
     console.log( 'in getTask' );
     $.ajax({
@@ -67,36 +90,34 @@ $(document).ready(function() {
     }); // end ajax
   }; // end getTask
 
+  //start putTask (UPDATE server/db)
+  var putTask = function(){
+    console.log( 'in putTask' );
+    $.ajax({
+      type: 'PUT',
+      url: '/putTask',
+      success: function( response ){
+        console.log( 'back from get call:', response );
+        displayTask( response );
+      }, // end success
+      error: function(){
+        console.log( 'error with ajax call...');
+      } //end error
+    }); //end ajax
+  };//end putTask
+
+  //------------Display Function----------//
+  //displayTask
   var displayTask = function(tasks){
     console.log( 'in displayTask:', tasks );
     // loop through the todolist and display each task
     var outputText = '';
     for (var i = 0; i < tasks.length; i++) {
-      console.log("status loop: ", tasks[i].status);
-      outputText += '<ul> Task:' + tasks[i].task + " " + "</ul><ul>Status: " + tasks[i].status + '</ul>'+'<button id="completeTaskBtn" type="button" name="completetask">Complete Task</button>' + '<button id="deleteTaskBtn" type="button" name="deleteTask">Delete Task</button>';
-
+      console.log("status for loop: ", tasks[i].status);
+      console.log("tasks[i].id:", tasks[i].id);
+      outputText += "<ul>Task: " + tasks[i].task + "</ul><ul>Status: " + tasks[i].status + "</ul><ul>" + "<button class='complete-task-btn'  type='button' name='completetask' data=" + tasks[i].id + "> Complete Task </button>" + " " + "<button class='delete-task-btn' type='button' name='deleteTask' data=" + tasks[i].id + ">Delete Task</button></ul>";
     } // end for
     $( '#outputDiv' ).html( outputText );
   };//end displayOnDom
-
-  var postCompleteTask = function(){
-    console.log('in postComplete');
-    //assemble userInput
-    var taskInputObj={
-      status: "complete",
-    };//end taskInputObj
-    //start ajax
-    $.ajax({
-      type: 'POST',
-      url: '/postTaskComplete',
-      data: taskInputObj,
-      success: function( response ){
-        console.log( 'back from post call:', response );
-      }, // end success
-      error: function(){
-        console.log( 'error with ajax call...');
-      } // end error
-    }); // end ajax
-  }; // end postComplete
 
 });// end $
