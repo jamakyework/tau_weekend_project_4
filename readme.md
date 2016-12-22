@@ -66,10 +66,7 @@ index.html
     [x] Create public/views/index.html
     [x] Text Input and Create Task button
     [x] display/outputDIV
-[] In output, need to reflect status of task and option to complete task or delete task
-(probably will need a drop down in output to allow users to select if task is complete, pending or delete task)
-(HOW? can do all need to figure out how to select each task... unique quality of tasks is ID)
-
+[x] In output, need to reflect status of task and option to complete task or delete task
 
 client.js
 =========

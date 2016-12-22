@@ -5,7 +5,8 @@ var bodyParser = require( 'body-parser' );
 var pg = require( 'pg' );
 var urlEncodedParser = bodyParser.urlencoded( { extended: false } );
 var port = process.env.PORT || 8080;
-var connectionString = 'postgres://localhost:5432/toDoListDB'; // create connection string to our database
+var connectionString = 'postgres://localhost:5432/toDoListDB';
+// create connection string to our database
 
 //start spin up
 app.listen( port, function( req, res ){
@@ -33,7 +34,7 @@ app.post( '/postTask', urlEncodedParser, function( req, res ){
     else{
       console.log( 'post connected to db' );
       // use wildcards to insert record
-      client.query( 'INSERT INTO todolist ( task, status, complete) VALUES ( $1 , $2, $3)', [ req.body.task, req.body.status , req.body.complete ] );
+      var query=client.query('INSERT INTO todolist ( task, status, complete) VALUES ( $1 , $2, $3)', [ req.body.task, req.body.status , req.body.complete ]);
       done();
       res.send( 'postTask sent' );
     }

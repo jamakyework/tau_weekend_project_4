@@ -50,21 +50,13 @@ $(document).ready(function(){
           url:'/deleteTask',
           data: objectToSend,
           success:function(response){
-            console.log(response);
-          }
+            console.log("delete response: ", response);
+            var responseArray = [response];
+            console.log("delete response.length: ", responseArray.length);
+          },//end success
         }); //end ajax
          getTask();
   }); //end deleteTaskBtn
-
-  //start if
-  if (response.length === 0) {
-    $( '#outputDiv' ).html( "<p>No tasks in to do list</p>" );
-  }
-  else {
-  displayTask( response );
-}//end if
-},// end success
-
 
   //--------------AJAX Calls-------------//
   //postTask (send user input)
@@ -97,58 +89,21 @@ $(document).ready(function(){
       type: 'GET',
       url: '/getTask',
       success: function( response ){
-        console.log( 'back from get call:', response );
-        console.log('response.length', response.length);
-        console.log("in status: ", response[0].status);
+        console.log( 'back from GET call:', response );
+        console.log('GET response.length', response.length);
         //start if
         if (response.length === 0) {
-          $( '#outputDiv' ).html( "<p>YNo tasks in to do list</p>" );
-        }
+          $( '#outputDiv' ).html( "<p>No tasks in to do list</p>" );
+        }//end if
         else {
         displayTask( response );
-      }//end if
+      }//end else
       },// end success
-
       error: function(){
         console.log( 'error with ajax call...');
       } // end error
     }); // end ajax
   }; // end getTask
-
-//   //start putTask (UPDATE server/db)
-//   var putTask = function(){
-//     console.log( 'in putTask' );
-//     var objectToSend = {
-//           id: id
-//         };
-//     $.ajax({
-//       type: 'PUT',
-//       url: '/putTask',
-//       data: id,
-//       success: function( response ){
-//         console.log( 'back from get call:', response );
-//         displayTask( response );
-//       }, // end success
-//       error: function(){
-//         console.log( 'error with ajax call...');
-//       } //end error
-//     }); //end ajax
-//   };//end putTask
-//
-// var deleteTask = function(){
-//   console.log('in deleteTask');
-//   var objectToSend = {
-//         id: id
-//       };
-//       $.ajax({
-//         type:'DELETE',
-//         url:'/deleteTask',
-//         data: objectToSend,
-//         success:function(response){
-//           console.log(response);
-//         }
-//       }); //end ajax
-//     };//end deleteTask
 
   //------------Display Function----------//
   //displayTask
