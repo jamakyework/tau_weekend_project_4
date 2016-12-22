@@ -69,7 +69,7 @@ app.get( '/getTask', function( req, res ){
   });//end db connect
 });//end getTasks
 
-//start completeTask PUT request
+//start putTask
 app.put('/putTask', urlEncodedParser, function(req, res) {
   console.log('completing task:', req.body);
   console.log('whats in here?:', req.body.id);
@@ -84,9 +84,9 @@ app.put('/putTask', urlEncodedParser, function(req, res) {
       res.send(query);
     }//end else statment
   });//end pg connect to database
-});//end completeTask PUT request
+});//end putTask
 
-//start deleteTask request
+//start deleteTask
 app.delete('/deleteTask', urlEncodedParser, function(req, res) {
   console.log('deleting task:', req.body);
   console.log('whats in here?:', req.body.id);
@@ -101,4 +101,4 @@ app.delete('/deleteTask', urlEncodedParser, function(req, res) {
       res.send(query);
     }//end else statment
   });//end pg connect to database
-});//end deleteTask request
+});//end deleteTask
