@@ -42,10 +42,28 @@ $(document).ready(function(){
   $('#outputDiv').on('click', '.delete-task-btn',function(){
     var id= $(this).attr('data');
     console.log("deleteTaskBtn clicked", id);
-    //  var objectToSend = {
-    //        id: id
-    //      };
+    var objectToSend = {
+          id: id
+        };
+        $.ajax({
+          type:'DELETE',
+          url:'/deleteTask',
+          data: objectToSend,
+          success:function(response){
+            console.log(response);
+          }
+        }); //end ajax
+         getTask();
   }); //end deleteTaskBtn
+
+  //start if
+  if (response.length === 0) {
+    $( '#outputDiv' ).html( "<p>No tasks in to do list</p>" );
+  }
+  else {
+  displayTask( response );
+}//end if
+},// end success
 
 
   //--------------AJAX Calls-------------//
@@ -97,21 +115,40 @@ $(document).ready(function(){
     }); // end ajax
   }; // end getTask
 
-  //start putTask (UPDATE server/db)
-  var putTask = function(){
-    console.log( 'in putTask' );
-    $.ajax({
-      type: 'PUT',
-      url: '/putTask',
-      success: function( response ){
-        console.log( 'back from get call:', response );
-        displayTask( response );
-      }, // end success
-      error: function(){
-        console.log( 'error with ajax call...');
-      } //end error
-    }); //end ajax
-  };//end putTask
+//   //start putTask (UPDATE server/db)
+//   var putTask = function(){
+//     console.log( 'in putTask' );
+//     var objectToSend = {
+//           id: id
+//         };
+//     $.ajax({
+//       type: 'PUT',
+//       url: '/putTask',
+//       data: id,
+//       success: function( response ){
+//         console.log( 'back from get call:', response );
+//         displayTask( response );
+//       }, // end success
+//       error: function(){
+//         console.log( 'error with ajax call...');
+//       } //end error
+//     }); //end ajax
+//   };//end putTask
+//
+// var deleteTask = function(){
+//   console.log('in deleteTask');
+//   var objectToSend = {
+//         id: id
+//       };
+//       $.ajax({
+//         type:'DELETE',
+//         url:'/deleteTask',
+//         data: objectToSend,
+//         success:function(response){
+//           console.log(response);
+//         }
+//       }); //end ajax
+//     };//end deleteTask
 
   //------------Display Function----------//
   //displayTask

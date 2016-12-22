@@ -10,22 +10,22 @@ var connectionString = 'postgres://localhost:5432/toDoListDB'; // create connect
 //start spin up
 app.listen( port, function( req, res ){
   console.log( 'server listening on', port );
-}); // end spin up
+}); //end spin up
 
-// base url
+//base url
 app.get( '/', function( req, res ){
   console.log( 'base url hit' );
   res.sendFile( path.resolve( 'views/index.html' ) );
 }); // end base url
 
-// static folders
+//static folders
 app.use( express.static( 'public') );
 app.use( express.static( 'style' ) );
 
-// start postTask
+//start postTask
 app.post( '/postTask', urlEncodedParser, function( req, res ){
   console.log( 'postTask url hit. req.body:', req.body );
-  // connect to db
+  //connect to db
   pg.connect( connectionString, function( err, client, done ){
     if( err ){
       console.log( err );
@@ -37,24 +37,24 @@ app.post( '/postTask', urlEncodedParser, function( req, res ){
       done();
       res.send( 'postTask sent' );
     }
-  }); // end db connection
-}); // end postTask
+  });//end db connection
+});// end postTask
 
 //start getTasks
 app.get( '/getTask', function( req, res ){
   console.log( 'getTask url hit' );
-  // connect to db
+  //connect to db
   pg.connect( connectionString, function( err, client, done ){
     if( err ){
       console.log( err );
-    } // end error
+    } //end error
     else{
       console.log( 'GET connected to db' );
       var query = client.query( 'SELECT * FROM todolist');
-      // array for tasks
+      //array for tasks
       var allTasks = [];
       query.on( 'row', function( row ){
-        // push task into new array
+        //push task into new array
         allTasks.push( row );
       });
       query.on( 'end', function(){
@@ -64,9 +64,9 @@ app.get( '/getTask', function( req, res ){
         console.log( "in allTasks: ", allTasks );
         res.send( allTasks );
       });
-    } // end no error
-  }); // end db connect
-}); // end getTasks
+    }//end no error
+  });//end db connect
+});//end getTasks
 
 //start completeTask PUT request
 app.put('/putTask', urlEncodedParser, function(req, res) {
@@ -81,6 +81,23 @@ app.put('/putTask', urlEncodedParser, function(req, res) {
       var query= client.query("UPDATE todolist SET complete=TRUE, status='complete' WHERE complete=FALSE AND id=" + [req.body.id]);
       done();
       res.send(query);
-    } //end else statment
-  }); //end pg connect to database
-}); //end completeTask PUT request
+    }//end else statment
+  });//end pg connect to database
+});//end completeTask PUT request
+
+//start deleteTask request
+app.delete('/deleteTask', urlEncodedParser, function(req, res) {
+  console.log('deleting task:', req.body);
+  console.log('whats in here?:', req.body.id);
+  //connecting to the database
+  pg.connect(connectionString, function(err, client, done) {
+    if (err) {
+      console.log('error in connecting to database');
+    } else {
+      console.log('DELETE connected to db');
+      var query= client.query("DELETE FROM todolist WHERE id=" + [req.body.id]);
+      done();
+      res.send(query);
+    }//end else statment
+  });//end pg connect to database
+});//end deleteTask request
