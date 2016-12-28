@@ -20,17 +20,17 @@ In whatever fashion you would like, create an 'are you sure: yes / no' option wh
 
 Adjust the logic so that completed tasks are brought to the bottom of the page, where the remaining tasks left to complete are brought to the top of the list.
 ================================================================================
-Project Setup
+#Project Setup
 
 # Required Technologies
-[x] HTML
+[*] HTML
 [x] CSS
 [x] JavaScript
 [x] jQuery
 [x] Node
 [x] Express
 [x] body-parser
-[x] pSQL
+[*] pSQL
 
 # Source and connect required files and technologies
 [x] Create project folder
@@ -41,7 +41,7 @@ Project Setup
 [x] npm init, npm install express, body-parser, pg, jquery,
 
 ================================================================================
-Project Tasks
+#Project Tasks
 
 # index.html
 [x] Create a front end experience that allows a user to create a task
