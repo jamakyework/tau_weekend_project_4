@@ -23,22 +23,22 @@ Adjust the logic so that completed tasks are brought to the bottom of the page, 
 #Project Setup
 
 # Required Technologies
-[*] HTML
-[x] CSS
-[x] JavaScript
-[x] jQuery
-[x] Node
-[x] Express
-[x] body-parser
-[*] pSQL
+*[x] HTML
+*[x] CSS
+*[x] JavaScript
+*[x] jQuery
+*[x] Node
+*[x] Express
+*[x] body-parser
+*[x] pSQL
 
 # Source and connect required files and technologies
-[x] Create project folder
-[x] Connect public/style/style/style.css
-[x] Connect scripts/client.js
-[x] Connect scripts/vendors/jquery
-[x] Create gitignore, git init, git add ., git commit, git push,
-[x] npm init, npm install express, body-parser, pg, jquery,
+*[x] Create project folder
+*[x] Connect public/style/style/style.css
+*[x] Connect scripts/client.js
+*[x] Connect scripts/vendors/jquery
+*[x] Create gitignore, git init, git add ., git commit, git push,
+*[x] npm init, npm install express, body-parser, pg, jquery,
 
 ================================================================================
 #Project Tasks
