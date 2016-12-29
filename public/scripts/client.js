@@ -1,7 +1,6 @@
 //start $
 $(document).ready(function() {
     console.log("$");
-
     //-----------Buttons------------------ //
     //start createTaskBtn click
     $("#createTaskBtn").on('click', function() {
@@ -35,8 +34,9 @@ $(document).ready(function() {
                     console.log("in complete task click:", response);
                 } //end success
         }); //end ajax
+        //add delay
         getTask();
-        changecolor();
+        //changecolor();
     }); //end completeTaskBtn
 
     //start deleteTaskBtn
@@ -113,8 +113,7 @@ $(document).ready(function() {
         for (var i = 0; i < tasks.length; i++) {
             // console.log("status for loop: ", tasks[i].status);
             // console.log("tasks[i].id:", tasks[i].id);
-            outputText += "<div class='task-display'><ul>Task: " + tasks[i].task + "</ul><ul>Status: " + tasks[i].status + "</ul></div>";
-            outputText += "<div><ul><button class='complete-task-btn'  type='button' name='completetask' data=" + tasks[i].id + "> Complete Task </button>" + " " + "<button class='delete-task-btn' type='button' name='deleteTask' data=" + tasks[i].id + ">Delete Task</button></ul></div>";
+            outputText += "<p><div class='task-display " + tasks[i].status + "'>Task:"+ tasks[i].task + "</br>Status:"+ tasks[i].status +"  "+ "<button class='complete-task-btn'type='button' name='completetask' data=" + tasks[i].id + "> Complete Task </button>" + " " + "<button class='delete-task-btn' type='button' name='deleteTask' data=" + tasks[i].id + '>Delete Task</button></div></p>';
         } // end for
         $('#outputDiv').html(outputText);
     }; //end displayOnDom
@@ -124,6 +123,11 @@ $(document).ready(function() {
     };
 
 }); // end $
+
+
+
+// outputText += "<div class='task-display " + tasks[i].status + "'><ul>Task: " + tasks[i].task + "</ul><ul>Status: " + tasks[i].status + "</ul></div>";
+// outputText += "<div><ul><button class='complete-task-btn " + tasks[i].status + "'type='button' name='completetask' data=" + tasks[i].id + "> Complete Task </button>" + " " + "<button class='delete-task-btn' type='button' name='deleteTask' data=" + tasks[i].id + ">Delete Task</button></ul></div>";
 
 // //displayTask
 // var displayTask = function(tasks) {
@@ -149,3 +153,7 @@ $(document).ready(function() {
 
 //confirm("do you want to delete this task?");
 //on complete-task-btn click i want to change the color of the output to Green
+
+
+// (if status = complete then color should be green)
+// (if status = work in progress then color should be red)
