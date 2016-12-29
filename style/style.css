@@ -7,19 +7,14 @@ h1 {
     color: white;
 }
 
-p {
+h2 {
+    text-align: left;
     color: white;
 }
 
-ul {
-    background-color: #008CBA;
-    border: none;
+p {
+    text-decoration-color: white;
     color: white;
-    padding: 15px 32px;
-    text-align: left;
-    text-decoration: none;
-    display: list-item;
-    font-size: 16px;
 }
 
 #taskInput {
@@ -89,4 +84,8 @@ ul {
 
 .complete {
     background-color: green;
+}
+
+.task-display {
+  background-color: blue;
 }
